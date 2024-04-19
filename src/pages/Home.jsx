@@ -5,7 +5,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 
 const Home = () => {
   const [movies, setmovies] = useState(() => null);
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
 
   useEffect(() => {
     (async function () {
@@ -15,7 +15,7 @@ const Home = () => {
         setmovies(resulte);
       } catch (error) {
         console.log(error);
-        setError(true);
+        // setError(true);
       }
     })();
   }, []);

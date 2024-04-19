@@ -17,7 +17,7 @@ const Cast = () => {
         console.log(error);
       }
     })();
-  }, []);
+  }, [movieId]);
 
   return (
     <>
