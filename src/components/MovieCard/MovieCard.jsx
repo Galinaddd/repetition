@@ -1,5 +1,5 @@
 export const MovieCard = ({ info }) => {
-  console.log(info);
+  // console.log(info);
   return (
     <>
       <img

@@ -8,14 +8,15 @@ const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState(() => null);
   const location = useLocation();
 
-  console.log(location);
+  // console.log(location);
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     (async function () {
       try {
         const result = await getMovieDeatails(movieId);
         setMovieInfo(result);
-        console.log(result);
+        // console.log(result);
       } catch (error) {
         console.log(error);
       }
@@ -24,16 +25,20 @@ const MovieDetails = () => {
   return (
     <>
       <p>MovieDetails page</p>
-      <NavLink to={location.state?.from ?? '/'}>Get Back</NavLink>
+      <NavLink to={backLinkHref}>Get Back</NavLink>
       {movieInfo ? (
         <>
           <MovieCard info={movieInfo} />
           <ul>
             <li>
-              <NavLink to="Cast">Cast</NavLink>
+              <NavLink to="Cast" state={{ from: backLinkHref }}>
+                Cast
+              </NavLink>
             </li>
             <li>
-              <NavLink to="Reviews ">reviews </NavLink>
+              <NavLink to="Reviews " state={{ from: backLinkHref }}>
+                reviews{' '}
+              </NavLink>
             </li>
           </ul>
           <Outlet />

@@ -5,14 +5,14 @@ import { useParams } from 'react-router-dom';
 const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState(() => null);
-  console.log(`Movie Id: ${movieId}`);
+  // console.log(`Movie Id: ${movieId}`);
 
   useEffect(() => {
     (async function () {
       try {
         const result = await getMovieCredits(movieId);
         setCast(result.cast);
-        console.log(result);
+        // console.log(result);
       } catch (error) {
         console.log(error);
       }
